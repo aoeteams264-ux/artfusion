@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: artfusion-backend
+    env: docker
+    dockerfilePath: backend/Dockerfile
+    branch: main
+    plan: free
+
+  - type: static
+    name: artfusion-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    branch: main
+    plan: free
